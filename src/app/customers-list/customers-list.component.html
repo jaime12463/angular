@@ -1,0 +1,26 @@
+<div class="container mt-4">
+    <h4 class="text-center">Listado de clientes</h4>
+
+    <form action="">
+       <div class="form-group">
+           <input type="text" class="form-control" placeholder="Buscar Cliente" />
+       </div>
+    </form>
+    <div class="row">
+        <div class="col-sm-3" *ngFor = 'let customer of customers' >
+            <div class="card" >
+                <img [src]="customer.url" class="card-img-top" alt="...">
+                <div class="card-body">
+                  
+                  <h5 class="card-title">{{customer.name}} {{customer.lastName}}</h5>
+                  <h6>{{customer.id}}</h6>
+                  <p class="card-text">Email: {{customer.email}}</p>
+                  <p class="card-text">tel: {{customer.phone}}</p>
+                  <a [routerLink]="['/add-customers/', customer.id ]" class="card-link">editar</a>
+                  <a href="#" class="card-link">eliminar</a>
+                </div>
+              </div>
+        </div>
+        
+    </div>
+</div>>

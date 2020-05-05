@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="text-center">
+        <img src="assets/logo.png" alt=""/>
+        <h3>Bienvenidos ingrese sus datos</h3>
+    </div>
+    <form [formGroup]="formLogin">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Correo electronico</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su correo" formControlName="email">
+          <div *ngIf="!formLogin.controls['email'].valid && formLogin.controls['email'].dirty">
+            <div *ngIf="formLogin.controls['email'].errors.required" class="alert alert-danger" role="alert">
+                El correo es requerido!
+              </div>
+              <div *ngIf="formLogin.controls['email'].errors.email"  class="alert alert-danger" role="alert">
+                El correo no es valido!
+              </div>
+          </div>
+         
+         
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Contraseña</label>
+          <input type="password" (keyUp.enter)="login()" class="form-control" id="exampleInputPassword1" placeholder="Escriba su contraseña" formControlName="password">
+          <div *ngIf="!formLogin.controls['password'].valid && formLogin.controls['password'].dirty">
+            <div *ngIf="formLogin.controls['password'].errors.required" class="alert alert-danger" role="alert">
+                El correo es requerido!
+              </div>
+              <div *ngIf="formLogin.controls['password'].errors.minlength"  class="alert alert-danger" role="alert">
+                La contraseña debe tener al menos 8 caracteres!
+              </div>
+          </div>
+        </div>
+        <button (click)="login()" [disabled]="!formLogin.valid" class="btn btn-primary">Ingresar</button>
+     
+      </form>
+      <div *ngIf="!formIsValid" class="alert alert-warning" role="alert">
+       {{messageError}}
+      </div>
+
+      <ngx-spinner
+      bdOpacity = 0.7
+      bdColor = "#000000"
+      size = "large"
+      color = "#a79c9c"
+      type = "ball-atom"
+      [fullScreen] = "false"
+      >
+      <p style="color: #ffffff" > Loading... </p>
+      </ngx-spinner>
+       
+      
+</div>

@@ -1,0 +1,75 @@
+<div class="container mt-4">
+    <form action="" [formGroup]="formAddCustomer">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" id="name" placeholder="Nombre del cliente" formControlName="name" >
+                    <div *ngIf="!formAddCustomer.controls['name'].valid && formAddCustomer.controls['name'].dirty" class="alert alert-danger" role="alert"> 
+                        <span *ngIf="formAddCustomer.controls['name'].errors.required">El nombre es requerido!</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="lastName">Apellido</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Apellido del cliente" formControlName="lastName">
+                    <div *ngIf="!formAddCustomer.controls['lastName'].valid && formAddCustomer.controls['lastName'].dirty" class="alert alert-danger" role="alert"> 
+                        <span *ngIf="formAddCustomer.controls['lastName'].errors.required">El apellido es requerido!</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email del cliente"formControlName="email">
+                    <div *ngIf="!formAddCustomer.controls['email'].valid && formAddCustomer.controls['email'].dirty" class="alert alert-danger" role="alert"> 
+                        <span *ngIf="formAddCustomer.controls['email'].errors.required">El correo es requerido!</span>
+                        <span *ngIf="formAddCustomer.controls['email'].errors.email">El correo no es valido!</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="rfc">RFC</label>
+                    <input type="text" class="form-control" id="rfc" placeholder="RFC del cliente" formControlName="rfc">
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="birthDate">Fecha de nacimiento</label>
+                    <input type="date" class="form-control" id="birthDate" placeholder="Fecha de nacimiento" formControlName="birthDate">
+                    <div *ngIf="!formAddCustomer.controls['birthDate'].valid && formAddCustomer.controls['birthDate'].dirty" class="alert alert-danger" role="alert"> 
+                        <span *ngIf="formAddCustomer.controls['birthDate'].errors.required">La fecha de requerida!</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="phone">Telefono</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="Telefono del cliente" formControlName="phone">
+                    <div *ngIf="!formAddCustomer.controls['phone'].valid && formAddCustomer.controls['phone'].dirty" class="alert alert-danger" role="alert"> 
+                        <span *ngIf="formAddCustomer.controls['phone'].errors.required">El telefono es requerido!</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <input type="file" class="form-control-file" placeholder="Seleccionar imagen" formControlName ="url" (change)="uploadImagen($event)" />
+                    <div *ngIf="!formAddCustomer.controls['url'].valid && formAddCustomer.controls['url'].dirty" class="alert alert-danger" role="alert"> 
+                        <span *ngIf="formAddCustomer.controls['url'].errors.required">Favor de subir fotografia!</span>
+                    </div>
+                  
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <progressbar [value]="percentage" type="success" [striped]="true">{{percentage}} %</progressbar>
+            </div>
+
+        </div>     
+        <br><br>
+        <button *ngIf="isNew" class="btn btn-primary" [disabled]="!formAddCustomer.valid" (click)="add()">Agregar</button>
+        <button *ngIf="!isNew" class="btn btn-primary" [disabled]="!formAddCustomer.valid" (click)="update()">Editar</button>
+    </form> 
+</div>

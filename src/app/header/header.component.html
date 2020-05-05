@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">MasterGym</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/">Inscripcion <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Ver incripciones </a>
+          </li>
+        <li class="nav-item dropdown" dropdown>
+          <a class="nav-link dropdown-toggle" dropdownToggle id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Clientes
+          </a>
+          <div class="dropdown-menu"  *dropdownMenu aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/add-customers">Agregar</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/customers" >Ver clientes</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/precios">Precios</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Usuarios</a>
+          </li>
+          <li class="nav-item dropdown" dropdown>
+            <a class="nav-link dropdown-toggle" dropdownToggle id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Reportes
+            </a>
+            <div class="dropdown-menu"  *dropdownMenu aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Subscripciones Diarias</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Subscripciones Mensuales</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Más vendidas</a>
+            </div>
+          </li>
+      </ul>
+     
+    </div>
+    <button class="btn btn-danger" (click)="logout()">Salir</button>
+  </nav>
