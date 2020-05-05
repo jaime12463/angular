@@ -21,6 +21,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { PricingComponent } from './pricing/pricing.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { SelectCustomerComponent } from './select-customer/select-customer.component';
+import { JimmyComponent } from './jimmy/jimmy.component';
 
 
 
@@ -36,7 +37,8 @@ import { SelectCustomerComponent } from './select-customer/select-customer.compo
     AddCustomerComponent,
     PricingComponent,
     InscriptionComponent,
-    SelectCustomerComponent
+    SelectCustomerComponent,
+    JimmyComponent
   ],
   imports: [
     BrowserModule,
